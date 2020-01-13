@@ -21,7 +21,7 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
     
             
             var macaddr = "?macaddr=" + "aa1bee86";
-			var date_filter = "&date_filter=" + "2020-01-05 11:00:00+-+2020-01-05 17:00:00";
+			var date_filter = "&date_filter=" + lh + "+-+" + now;
 			var data_array;
 			$.ajax({
 				type: "POST",
