@@ -87,6 +87,38 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     console.log(count);
                     console.log(value.length);
                     console.log(timestamp.length);
+
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    var acc_data = new Array(value.length + 1);
+                    for (i = 0; i < acc_data.length; i++) acc_data[i] = new Array(2);
+
+                    acc_data[0][0] = 'time';
+                    acc_data[0][1] = 'value';
+                    for (i = 1; i < acc_data.length; i ++) {
+                        acc_data[i][0] = timestamp[i-1];
+                        acc_data[i][1] = value[i-1];
+                    }
+                    console.log(acc_data.length);
+                    console.log(acc_data[0].length);
+                    console.log(acc_data[count][0]);
+                    console.log(acc_data[count][1]);
+  
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable(acc_data);
+
+                        var options = {
+                        title: 'Company Performance',
+                        curveType: 'function',
+                        legend: { position: 'bottom' }
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                        chart.draw(data, options);
+                    }
+
 				},
 				headers: {
 					'Accept': 'application/json',
