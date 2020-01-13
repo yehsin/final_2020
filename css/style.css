@@ -3,6 +3,8 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+ 
+ @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
  body {
     overflow-x: hidden;
@@ -87,6 +89,7 @@
 
 .sidebar-nav > .main{
     height: 65px;
+    font-family: "Noto Sans TC", sans-serif;
     font-size: 18px;
     line-height: 60px;
 }
@@ -129,10 +132,20 @@
 }
 #main {
     padding-top:20px;
+    
     font-size: 60pt
 }
 .section {
     padding-top:20px;
     height:500px;
     color: #000; 
+}
+
+#refresh {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    margin: 10px;
 }
