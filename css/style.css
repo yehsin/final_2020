@@ -147,3 +147,8 @@
 img {
     margin: 10px;
 }
+
+#light {
+    float: left;
+    height: 200px;
+}

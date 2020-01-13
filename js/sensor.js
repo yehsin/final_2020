@@ -58,8 +58,10 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
 				async: false,
 				success: function(response) {
 					var i;
-                    var x, y, z, acc, time, count = 0;
+                    var x, y, z, acc, time;
                     var timestamp = [], value = [];
+                    count = 0;
+                    var image = document.getElementById("light");
                     
                     console.log(response.length);
                     
@@ -74,6 +76,13 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                             value.push(acc);
                             timestamp.push(time);
                         }
+                    }
+                    if(count > 80){
+                        image.src = "img/red.png";
+                    } else if(count > 40){
+                        image.src = "img/yellow.png";
+                    } else {
+                        image.src = "img/green.png";
                     }
                     console.log(count);
                     console.log(value.length);
