@@ -13,6 +13,5 @@ if(mm<10) {
 
 today = mm + '/' + dd + '/' + yyyy;
 
-var header = document.querySelector('header');
-var section = document.querySelector('section');
+console.log("today is " + today);
 
