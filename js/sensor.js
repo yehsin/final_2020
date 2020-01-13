@@ -62,6 +62,10 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     var timestamp = [], value = [];
                     count = 0;
                     var image = document.getElementById("light");
+                    var warning = document.getElementById("warning");
+                    var warning1 = document.getElementById("warning1");
+                    var warning2 = document.getElementById("warning2");
+                    var warning3 = document.getElementById("warning3");
                     
                     console.log(response.length);
                     
@@ -76,13 +80,23 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                             value.push(acc);
                             timestamp.push(time);
                         }
-                    }
+                    }                    
+
                     if(count > 80){
                         image.src = "img/red.png";
+                        warning1.innerHTML = "現在車流量很大，請小心注意哦！";
+                        warning2.innerHTML = "本站建議半小時後再出門道路會比較順暢。";
+                        warning3.innerHTML = "如果有車證的話離開學校速度可以加快～";
                     } else if(count > 40){
                         image.src = "img/yellow.png";
+                        warning1.innerHTML = "現在車流量稍大，離校車輛可能需要等一下！";
+                        warning2.innerHTML = "本站建議半小時後再出門道路會比較順暢。";
+                        warning3.innerHTML = "如果有車證的話離開學校速度可以加快～";
                     } else {
                         image.src = "img/green.png";
+                        warning1.innerHTML = "現在道路非常順暢，離校速度超級快！";
+                        warning2.innerHTML = "本站建議盡快出門以免車況變糟。";
+                        warning3.innerHTML = "如果有車證的話離開學校速度可以更加快～";
                     }
                     console.log(count);
                     console.log(value.length);

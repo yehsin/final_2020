@@ -152,3 +152,11 @@ img {
     float: left;
     height: 200px;
 }
+
+#warning {
+    margin: 10px;
+    font-size: 20pt;
+}
+.rooster {
+    height: 300px;
+}
