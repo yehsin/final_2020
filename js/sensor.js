@@ -57,11 +57,27 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
 				dataType: "json",
 				async: false,
 				success: function(response) {
-					console.log(response);
-                    data_array = response;
-					document.getElementById("barometer").innerHTML = response[0]['barometer'] + " hPA";
-					document.getElementById("humidity").innerHTML = response[0]['humidity']  + " %";
-					document.getElementById("temperature").innerHTML = response[0]['temperature'] + " Celsius degree";
+					var i;
+                    var x, y, z, acc, time, count = 0;
+                    var timestamp = [], value = [];
+                    
+                    console.log(response.length);
+                    
+                    for (i = 0; i < response.length; i++) {
+                        x = Math.abs(response[i]['acc_x']);
+                        y = Math.abs(response[i]['acc_y']);
+                        z = Math.abs(response[i]['acc_z']);
+                        time = response[i]['updated_at'];
+                        acc = x + y + z;
+                        if (acc > 0) {
+                            count ++;
+                            value.push(acc);
+                            timestamp.push(time);
+                        }
+                    }
+                    console.log(count);
+                    console.log(value.length);
+                    console.log(timestamp.length);
 				},
 				headers: {
 					'Accept': 'application/json',
