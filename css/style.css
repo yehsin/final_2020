@@ -135,7 +135,8 @@
 }
 .section {
     padding-top:20px;
-    height:500px;
+    height:auto;
+    margin: 20px;
     color: #000; 
 }
 
@@ -159,4 +160,8 @@ img {
 }
 .rooster {
     height: 300px;
+}
+#curve_chart_hour, #curve_chart_day{
+    width: 900px; 
+    height: 500px;
 }

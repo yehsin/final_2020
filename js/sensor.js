@@ -178,19 +178,19 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     for (i = 0; i < acc_data.length; i++) acc_data[i] = new Array(2);
                     
                     acc_data[0][0] = 'time';
-                    acc_data[0][1] = 'value';
+                    acc_data[0][1] = '車流量';
                     for (i = 1; i < acc_data.length; i ++) {
                         acc_data[i][0] = hour_list[i-1];
                         acc_data[i][1] = hour_sum[i-1];
                     }
 
-                    draw(acc_data, "curve_chart_hour")
+                    draw(acc_data, "curve_chart_hour", "今日車流量")
 
                     var acc_data_day = new Array(day_sum.length + 1);
                     for (i = 0; i < acc_data_day.length; i++) acc_data_day[i] = new Array(2);
                     
                     acc_data_day[0][0] = 'time';
-                    acc_data_day[0][1] = 'value';
+                    acc_data_day[0][1] = '車流量';
                     for (i = 1; i < acc_data_day.length; i ++) {
                         var tryy = day_list[i-1].split(" ", 1);
                         acc_data_day[i][0] = String(tryy);
@@ -198,9 +198,9 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     }
                     // console.log(typeof day_list[0]);
 
-                    draw(acc_data_day, "curve_chart_day")
+                    draw(acc_data_day, "curve_chart_day", "本週車流量")
                     
-                    function draw(acc_data, ID) {
+                    function draw(acc_data, ID, title) {
                         google.charts.load('current', {'packages':['corechart']});
                         google.charts.setOnLoadCallback(drawChart);
                         
@@ -208,7 +208,7 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                             var data = google.visualization.arrayToDataTable(acc_data);
                             
                             var options = {
-                                title: 'Company Performance',
+                                title: title,
                             curveType: 'function',
                             legend: { position: 'bottom' }
                             };
