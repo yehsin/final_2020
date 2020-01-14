@@ -45,6 +45,7 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
             // var data_start_obj = new Date(curr_time_obj.getTime() - (1000*60*60 * 24*8)); 
             var data_start_obj = new Date(curr_time_obj.getTime() - (1000*60*60 * 24*8)); 
             var last_week_obj = new Date(curr_time_obj.getTime() - (1000*60*60 * 24*7)); 
+            var last_hour_obj = new Date(curr_time_obj.getTime() - (1000*60*60)); 
 
             // current time
             var curr_time_year = curr_time_obj.getFullYear();
@@ -72,6 +73,15 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
             var last_week_min = leftPad(last_week_obj.getMinutes(), 2) 
             var last_week_sec = leftPad(last_week_obj.getSeconds(), 2)
             var last_week = last_week_year + '-' + last_week_month + '-' + last_week_date + ' ' + last_week_hour + ':' + last_week_min + ':' + last_week_sec
+
+            // last hour
+            var last_hour_year = last_hour_obj.getFullYear();
+            var last_hour_month = leftPad(last_hour_obj.getMonth() + 1, 2)
+            var last_hour_date = leftPad(last_hour_obj.getDate(), 2)
+            var last_hour_hour = leftPad(last_hour_obj.getHours(), 2) 
+            var last_hour_min = leftPad(last_hour_obj.getMinutes(), 2) 
+            var last_hour_sec = leftPad(last_hour_obj.getSeconds(), 2)
+            var last_hour = last_hour_year + '-' + last_hour_month + '-' + last_hour_date + ' ' + last_hour_hour + ':' + last_hour_min + ':' + last_hour_sec
 
             // split time
             var curr_hour = curr_time_year + '-' + curr_time_month + '-' + curr_time_date + ' ' + curr_time_hour + ':00:00'
@@ -127,7 +137,8 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                         z = Math.abs(response[i]['acc_z']);
                         time = response[i]['updated_at'];
                         acc = x + y + z;
-                        if (acc > 0) {
+                        
+                        if (response[i]['updated_at'] >= last_hour && acc > 0) {
                             count ++;
                         }
 
