@@ -5,6 +5,7 @@
         <meta charset="utf-8">
 		<title>炸藍雞——校門口車流量監測</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -14,7 +15,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="./js/side.js"></script>
+        <script src="./js/side.js"></script>
 		<script src="./js/sensor.js"></script>
 	</head>
 
@@ -47,7 +48,7 @@
                     <h1>炸藍雞</h1>
                     <img src="./img/rooster.png" class="rooster"><br><br>
                     <button id="refresh" class="btn btn-success">Refresh</button>
-                    <p>上次更新時間：<div class="refresh"></div></p>
+                    <div>上次更新時間：<p id="time"></p></div>
                 </div>
                 <div id="section1" class="section">
                     <h2>現在車況</h2>

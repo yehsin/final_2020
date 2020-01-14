@@ -108,16 +108,18 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
 				success: function(response) {
 					var i, j, k;
                     var x, y, z, acc, time, count = 0, hour_sum_temp = 0, day_sum_temp = 0;
-                    var timestamp = [], value = [];
-                    var timestamp_week = [], value_week = [];
+                    // var timestamp = [], value = [];
+                    // var timestamp_week = [], value_week = [];
                     var hour_sum = [];
                     var day_sum = [];
                     
+                    var tm = document.getElementById("time");
                     var image = document.getElementById("light");
                     var warning1 = document.getElementById("warning1");
                     var warning2 = document.getElementById("warning2");
                     var warning3 = document.getElementById("warning3");
                     
+                    tm.innerHTML = curr_time;
 
                     for (i = 0, j = 0, k = 0; i < response.length; i++) {
                         x = Math.abs(response[i]['acc_x']);
@@ -190,9 +192,11 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     acc_data_day[0][0] = 'time';
                     acc_data_day[0][1] = 'value';
                     for (i = 1; i < acc_data_day.length; i ++) {
-                        acc_data_day[i][0] = day_list[i-1];
+                        var tryy = day_list[i-1].split(" ", 1);
+                        acc_data_day[i][0] = String(tryy);
                         acc_data_day[i][1] = day_sum[i-1];
                     }
+                    // console.log(typeof day_list[0]);
 
                     draw(acc_data_day, "curve_chart_day")
                     
