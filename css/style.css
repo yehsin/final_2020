@@ -5,9 +5,9 @@
  */
  
 
- body {
+body {
     overflow-x: hidden;
- }
+}
 
 /* Toggle Styles */
 
@@ -149,6 +149,15 @@ img {
     margin: 10px;
 }
 
+h1{
+    font-size:5vw;
+    text-align: center;
+    /* background-color: #cbeefdeb; */
+    color: #fff;
+    padding-top: 18px;
+    height: 80px;
+}
+
 #light {
     float: left;
     height: 200px;
@@ -159,7 +168,10 @@ img {
     font-size: 20pt;
 }
 .rooster {
-    height: 300px;
+    position: absolute;
+    right : 50px;
+    top: 50px;
+    height: 350px;
 }
 #curve_chart_hour, #curve_chart_day{
     width: 900px; 
