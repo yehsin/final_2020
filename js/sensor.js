@@ -191,7 +191,7 @@ var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1OWMzMjU0M2UyN
                     acc_data[0][0] = 'time';
                     acc_data[0][1] = '車流量';
                     for (i = 1; i < acc_data.length; i ++) {
-                        acc_data[i][0] = hour_list[i-1];
+                        acc_data[i][0] = hour_list[i-1].substring(0, 16);;
                         acc_data[i][1] = hour_sum[i-1];
                     }
 
